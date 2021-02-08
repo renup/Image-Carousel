@@ -17,6 +17,9 @@
 		A7B6C96825D09810003C1C4F /* ImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C96725D09810003C1C4F /* ImagesCollectionViewController.swift */; };
 		A7B6C96D25D09B1B003C1C4F /* ImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C96C25D09B1B003C1C4F /* ImagesCollectionView.swift */; };
 		A7B6C97325D0AA23003C1C4F /* UIView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C97225D0AA23003C1C4F /* UIView+Utility.swift */; };
+		A7B6C97B25D0B039003C1C4F /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C97A25D0B039003C1C4F /* APIConfiguration.swift */; };
+		A7B6C98225D0B109003C1C4F /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C98125D0B109003C1C4F /* APIRouter.swift */; };
+		A7B6C98A25D0B754003C1C4F /* URLSession+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C98925D0B754003C1C4F /* URLSession+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		A7B6C96725D09810003C1C4F /* ImagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewController.swift; sourceTree = "<group>"; };
 		A7B6C96C25D09B1B003C1C4F /* ImagesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionView.swift; sourceTree = "<group>"; };
 		A7B6C97225D0AA23003C1C4F /* UIView+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utility.swift"; sourceTree = "<group>"; };
+		A7B6C97A25D0B039003C1C4F /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
+		A7B6C98125D0B109003C1C4F /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		A7B6C98925D0B754003C1C4F /* URLSession+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Utilities.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,9 @@
 		A7B6C95125CFEE65003C1C4F /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A7B6C98025D0B0E8003C1C4F /* EndPoints */,
+				A7B6C97F25D0B0DD003C1C4F /* Routers */,
+				A7B6C97A25D0B039003C1C4F /* APIConfiguration.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -178,8 +187,24 @@
 			isa = PBXGroup;
 			children = (
 				A7B6C97225D0AA23003C1C4F /* UIView+Utility.swift */,
+				A7B6C98925D0B754003C1C4F /* URLSession+Utilities.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		A7B6C97F25D0B0DD003C1C4F /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				A7B6C98125D0B109003C1C4F /* APIRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		A7B6C98025D0B0E8003C1C4F /* EndPoints */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EndPoints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +341,9 @@
 				A7B6C96D25D09B1B003C1C4F /* ImagesCollectionView.swift in Sources */,
 				A7B6C91C25CF3D3B003C1C4F /* AppDelegate.swift in Sources */,
 				A7B6C91E25CF3D3B003C1C4F /* SceneDelegate.swift in Sources */,
+				A7B6C98225D0B109003C1C4F /* APIRouter.swift in Sources */,
+				A7B6C98A25D0B754003C1C4F /* URLSession+Utilities.swift in Sources */,
+				A7B6C97B25D0B039003C1C4F /* APIConfiguration.swift in Sources */,
 				A7B6C97325D0AA23003C1C4F /* UIView+Utility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
