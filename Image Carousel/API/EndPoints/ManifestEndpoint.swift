@@ -9,20 +9,22 @@ import Foundation
 
 enum ManifestEndpoint: APIConfiguration {
     case manifest
+    case image(identifier: String)
     
     private struct EndpointConstants {
         static let manifest = "manifest"
+        static let image = "image"
     }
     
     var method: String {
         switch self {
-        case .manifest: return "GET"
+        case .manifest, .image: return "GET"
         }
     }
     
     var parameters: [URLQueryItem] {
         switch self {
-        case .manifest:
+        case .manifest, .image:
             return []
         }
     }
@@ -31,6 +33,8 @@ enum ManifestEndpoint: APIConfiguration {
         switch self {
         case .manifest:
             return Constants.baseURLString + EndpointConstants.manifest
+        case .image(identifier: let identifier):
+            return Constants.baseURLString + EndpointConstants.image + identifier
         }
     }
     

@@ -8,41 +8,77 @@
 import Foundation
 import UIKit
 
-final class ImagesCollectionViewController: UIViewController {
+final class ImagesCollectionViewController: UICollectionViewController {
     
-    private lazy var imagesView: ImagesCollectionView = {
-        let view = ImagesCollectionView()
-        return view
-    }()
+    private let sectionInsets = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+    
+    private let itemsPerRow: CGFloat = 2
     
     let viewModel = ImagesCollectionViewModel()
     
+    private var manifests: [[String]] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.wrap(view: imagesView)
-        
-        imagesView.dataSource = self
-        imagesView.delegate = self
+        view.backgroundColor = .white
+        collectionView.dataSource = self
+        collectionView.delegate = self
                 
-        imagesView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "albumCell")
-        viewModel.getManifests()
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "albumCell")
+        
+        viewModel.getManifests { (result) in
+            switch result {
+            case .success(let response):
+                print(response.manifest)
+                self.manifests = response.manifest
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
-}
 
-extension ImagesCollectionViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return manifests.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCell", for: indexPath)
         cell.backgroundColor = .purple
         return cell
     }
-    
-    
 }
 
-extension ImagesCollectionViewController: UICollectionViewDelegate {
+
+extension ImagesCollectionViewController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+      ) -> CGSize {
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        return CGSize(width: widthPerItem, height: widthPerItem)
+      }
+      
+      func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+      ) -> UIEdgeInsets {
+        return sectionInsets
+      }
+      
+      func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+      ) -> CGFloat {
+        return sectionInsets.left
+      }
+
 }

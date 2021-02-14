@@ -15,12 +15,10 @@
 		A7B6C93E25CF3D3C003C1C4F /* Image_CarouselUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C93D25CF3D3C003C1C4F /* Image_CarouselUITests.swift */; };
 		A7B6C95425CFEE92003C1C4F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C95325CFEE92003C1C4F /* AppCoordinator.swift */; };
 		A7B6C96825D09810003C1C4F /* ImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C96725D09810003C1C4F /* ImagesCollectionViewController.swift */; };
-		A7B6C96D25D09B1B003C1C4F /* ImagesCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C96C25D09B1B003C1C4F /* ImagesCollectionView.swift */; };
 		A7B6C97325D0AA23003C1C4F /* UIView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C97225D0AA23003C1C4F /* UIView+Utility.swift */; };
 		A7B6C97B25D0B039003C1C4F /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C97A25D0B039003C1C4F /* APIConfiguration.swift */; };
 		A7B6C98225D0B109003C1C4F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C98125D0B109003C1C4F /* NetworkService.swift */; };
 		A7B6C98A25D0B754003C1C4F /* URLSession+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C98925D0B754003C1C4F /* URLSession+Utilities.swift */; };
-		A7B6C98F25D0C1E9003C1C4F /* ManifestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C98E25D0C1E9003C1C4F /* ManifestRouter.swift */; };
 		A7B6C99425D0C268003C1C4F /* ManifestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C99325D0C268003C1C4F /* ManifestEndpoint.swift */; };
 		A7B6C99925D0C2AF003C1C4F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C99825D0C2AF003C1C4F /* Constants.swift */; };
 		A7B6C99F25D0C750003C1C4F /* ManifestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C99E25D0C750003C1C4F /* ManifestResponse.swift */; };
@@ -59,12 +57,10 @@
 		A7B6C93F25CF3D3C003C1C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7B6C95325CFEE92003C1C4F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A7B6C96725D09810003C1C4F /* ImagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewController.swift; sourceTree = "<group>"; };
-		A7B6C96C25D09B1B003C1C4F /* ImagesCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionView.swift; sourceTree = "<group>"; };
 		A7B6C97225D0AA23003C1C4F /* UIView+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utility.swift"; sourceTree = "<group>"; };
 		A7B6C97A25D0B039003C1C4F /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		A7B6C98125D0B109003C1C4F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		A7B6C98925D0B754003C1C4F /* URLSession+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Utilities.swift"; sourceTree = "<group>"; };
-		A7B6C98E25D0C1E9003C1C4F /* ManifestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestRouter.swift; sourceTree = "<group>"; };
 		A7B6C99325D0C268003C1C4F /* ManifestEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestEndpoint.swift; sourceTree = "<group>"; };
 		A7B6C99825D0C2AF003C1C4F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A7B6C99E25D0C750003C1C4F /* ManifestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManifestResponse.swift; sourceTree = "<group>"; };
@@ -164,7 +160,6 @@
 		A7B6C94F25CFEE4B003C1C4F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A7B6C96C25D09B1B003C1C4F /* ImagesCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -201,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				A7B6C98125D0B109003C1C4F /* NetworkService.swift */,
-				A7B6C98E25D0C1E9003C1C4F /* ManifestRouter.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -361,7 +355,6 @@
 			files = (
 				A7B6C96825D09810003C1C4F /* ImagesCollectionViewController.swift in Sources */,
 				A7B6C95425CFEE92003C1C4F /* AppCoordinator.swift in Sources */,
-				A7B6C96D25D09B1B003C1C4F /* ImagesCollectionView.swift in Sources */,
 				A7B6C91C25CF3D3B003C1C4F /* AppDelegate.swift in Sources */,
 				A7B6C91E25CF3D3B003C1C4F /* SceneDelegate.swift in Sources */,
 				A7B6C98225D0B109003C1C4F /* NetworkService.swift in Sources */,
@@ -371,7 +364,6 @@
 				A7B6C97B25D0B039003C1C4F /* APIConfiguration.swift in Sources */,
 				A7B6C99F25D0C750003C1C4F /* ManifestResponse.swift in Sources */,
 				A7B6C97325D0AA23003C1C4F /* UIView+Utility.swift in Sources */,
-				A7B6C98F25D0C1E9003C1C4F /* ManifestRouter.swift in Sources */,
 				A7B6C99925D0C2AF003C1C4F /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

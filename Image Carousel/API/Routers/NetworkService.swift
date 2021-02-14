@@ -79,7 +79,6 @@ final class NetworkService {
                     completion(.failure(.apiError))
                 }
             }
-            
         }
         task.resume()
         return task

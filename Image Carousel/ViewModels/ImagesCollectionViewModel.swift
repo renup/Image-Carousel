@@ -9,18 +9,7 @@ import Foundation
 
 final class ImagesCollectionViewModel {
     
-    private lazy var manifestRouter: ManifestRouter = {
-        return ManifestRouter()
-    }()
-    
-    func getManifests() {
-        manifestRouter.fetchManifest { (result) in
-            switch result {
-            case .success(let response):
-                print(response.manifest)
-            case .failure(let error):
-                print(error)
-            }
-        }
+    func getManifests(_ completion: @escaping (Result<ManifestResponse, APIServiceError>) -> Void) {
+        NetworkService().performRequest(route: ManifestEndpoint.manifest, completion: completion)
     }
 }

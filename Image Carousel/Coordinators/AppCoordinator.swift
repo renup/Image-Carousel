@@ -24,7 +24,7 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let imagesViewController = ImagesCollectionViewController()
+        let imagesViewController = ImagesCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
        let navigationViewController = UINavigationController(rootViewController: imagesViewController)
         window.rootViewController = navigationViewController
         window.makeKeyAndVisible()
