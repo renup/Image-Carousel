@@ -26,36 +26,33 @@ public enum APIServiceError: Error {
     
 }
 
-protocol APIRouter {
+final class NetworkService {
     
-    @discardableResult
-    func performRequest<T: Decodable>(of: T.Type, with route: APIConfiguration, ulr: String?, completion: @escaping (Result<T, APIServiceError>) -> Void) -> URLSessionTask?
-}
-
-extension APIRouter {
-    
-    func getURL(_ route: APIConfiguration) -> URL? {
+    private func getURL(_ route: APIConfiguration) -> URL? {
         let path = route.path
         var urlComponents = URLComponents(string: path)
         urlComponents?.queryItems = route.parameters
         return urlComponents?.url
     }
     
+    private func createRequest(route: APIConfiguration) -> URLRequest? {
+        guard let url = getURL(route) else { return nil }
+        let method = route.method
+        var request = URLRequest(url: url)
+        request.httpMethod = method
+        request.setValue(Constants.apiValue, forHTTPHeaderField: Constants.apiKey)
+        return request
+    }
+    
     @discardableResult
-    func performRequest<T: Decodable>(of: T.Type, with route: APIConfiguration, url: String?, completion: @escaping (Result<T, APIServiceError>) -> Void) -> URLSessionDataTask? {
-        var finalURL: URL
+    func performRequest<T: Decodable>(route: APIConfiguration, completion: @escaping (Result<T, APIServiceError>) -> Void) -> URLSessionDataTask? {
         
-        if let input = url, let inputURL = URL(string: input) {
-            finalURL = inputURL
-        } else {
-            guard let routeURL = getURL(route) else {
-                completion(.failure(.invalidEndpoint))
-                return nil
-            }
-            finalURL = routeURL
+        guard let request = createRequest(route: route) else {
+            completion(.failure(.invalidEndpoint))
+            return nil
         }
         
-        let task = URLSession.shared.dataTask(with: finalURL) { result in
+        let task = URLSession.shared.dataTask(with: request) { result in
             
             switch result {
             case .success(let (response, data)):

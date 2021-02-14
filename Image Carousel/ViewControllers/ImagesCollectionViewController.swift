@@ -15,6 +15,8 @@ final class ImagesCollectionViewController: UIViewController {
         return view
     }()
     
+    let viewModel = ImagesCollectionViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.wrap(view: imagesView)
@@ -23,6 +25,7 @@ final class ImagesCollectionViewController: UIViewController {
         imagesView.delegate = self
                 
         imagesView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "albumCell")
+        viewModel.getManifests()
     }
 }
 
