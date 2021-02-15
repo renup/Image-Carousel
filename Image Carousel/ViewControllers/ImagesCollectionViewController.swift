@@ -14,7 +14,7 @@ final class ImagesCollectionViewController: UICollectionViewController {
     
     private let itemsPerRow: CGFloat = 2
     
-    let viewModel = ImagesCollectionViewModel()
+    private let viewModel = ImagesCollectionViewModel()
     
     private var manifests: [[String]] = [] {
         didSet {
@@ -27,26 +27,31 @@ final class ImagesCollectionViewController: UICollectionViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
                 
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "albumCell")
+        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: "AlbumCell")
         
         viewModel.getManifests { (result) in
             switch result {
             case .success(let response):
                 print(response.manifest)
-                self.manifests = response.manifest
+                DispatchQueue.main.async {
+                    self.manifests = response.manifest
+                }
             case .failure(let error):
                 print(error)
             }
         }
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return manifests.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "albumCell", for: indexPath)
-        cell.backgroundColor = .purple
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath) as! AlbumCell
+        let itemArray = manifests[indexPath.row]
+        cell.configure(viewModel: viewModel, identifier: itemArray[indexPath.row])
+        print("identifier = \(itemArray[indexPath.row])")
+        cell.backgroundColor = .white
         return cell
     }
 }

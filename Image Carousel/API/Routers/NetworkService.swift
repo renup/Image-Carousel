@@ -45,6 +45,34 @@ final class NetworkService {
     }
     
     @discardableResult
+    func performRequestForImage(route: APIConfiguration, completion: @escaping (Result<Data, APIServiceError>) -> Void) -> URLSessionDataTask? {
+        guard let request = createRequest(route: route) else {
+            completion(.failure(.invalidEndpoint))
+            return nil
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { result in
+            
+            switch result {
+            case .success(let (response, data)):
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, 200..<299 ~= statusCode else {
+                    DispatchQueue.main.async {
+                        completion(.failure(.invalidResponse))
+                    }
+                    return
+                }
+                completion(.success(data)) // avoid converting to image from data in main thread
+            case .failure:
+                DispatchQueue.main.async {
+                    completion(.failure(.apiError))
+                }
+            }
+        }
+        task.resume()
+        return task
+    }
+    
+    @discardableResult
     func performRequest<T: Decodable>(route: APIConfiguration, completion: @escaping (Result<T, APIServiceError>) -> Void) -> URLSessionDataTask? {
         
         guard let request = createRequest(route: route) else {
@@ -57,27 +85,27 @@ final class NetworkService {
             switch result {
             case .success(let (response, data)):
                 guard let statusCode = (response as? HTTPURLResponse)? .statusCode, 200..<299 ~= statusCode else {
-                    DispatchQueue.main.async {
+                   // DispatchQueue.main.async {
                         completion(.failure(.invalidResponse))
-                    }
+                   // }
                     return
                 }
                 
                 do{
                     let values = try JSONDecoder().decode(T.self, from: data)
-                    DispatchQueue.main.async {
+                  //  DispatchQueue.main.async {
                         completion(.success(values))
-                    }
+                  //  }
                 } catch {
-                    DispatchQueue.main.async {
+                    //DispatchQueue.main.async {
                         completion(.failure(.decodeError))
-                    }
+                   // }
                 }
                 
             case .failure(_):
-                DispatchQueue.main.async {
+               // DispatchQueue.main.async {
                     completion(.failure(.apiError))
-                }
+               // }
             }
         }
         task.resume()
