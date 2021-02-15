@@ -24,28 +24,20 @@ final class ImagesCollectionViewModel {
     func getImageDetailsAndImage(_ identifier: String, _ completion: @escaping (UIImage?) -> Void) -> URLSessionDataTask? {
         let group = DispatchGroup()
         var resultImage: UIImage?
-        var resultFailure: APIServiceError?
         var task: URLSessionDataTask?
         
         group.enter()
         fetchImageDetails(identifier: identifier) {[weak self] (result) in
-//            defer { group.leave() }
             switch result {
             case .success(let imageResponse):
                 group.enter()
                task = self?.fetchImage(imageURL: imageResponse.url) { (result) in
-//                    defer { group.leave() }
-                    switch result {
-                    case .success(let image):
-                        resultImage = image
-                        group.leave()
-                    case .failure(let error):
-                        resultFailure = error
-                    }
+                    resultImage = result
+                    group.leave()
                }
                 group.leave()
             case .failure(let error):
-                resultFailure = error
+                print("error while getting image details = \(error)")
             }
             group.notify(queue: .main) {
                 completion(resultImage)
@@ -60,10 +52,10 @@ final class ImagesCollectionViewModel {
         return networkService.performRequest(route: ManifestEndpoint.imageDetail(identifier: identifier), completion: completion)
     }
     
-    func fetchImage(imageURL: String, completion: @escaping ( Result<UIImage?, APIServiceError>) -> Void) -> URLSessionDataTask? {
+    func fetchImage(imageURL: String, completion: @escaping (UIImage?) -> Void) -> URLSessionDataTask? {
         if  let image = imageCache.object(forKey: imageURL as NSString) {
             DispatchQueue.main.async {
-                completion(.success(image))
+                completion(image)
             }
         } else {
             //download it
@@ -73,10 +65,10 @@ final class ImagesCollectionViewModel {
                     let image = UIImage(data: data)
                     DispatchQueue.main.async {
                         print("received image")
-                        completion(.success(image))
+                        completion(image)
                     }
                 case .failure(let error):
-                    completion(.failure(error))
+                    print("error while downloading the image = \(error)")
                 }
             }
         } //end of else

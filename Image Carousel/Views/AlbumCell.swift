@@ -40,7 +40,6 @@ final class AlbumCell: UICollectionViewCell {
         super.prepareForReuse()
         task?.cancel()
         task = nil
-        print("cancelling task")
         imageView.image = nil
     }
 }

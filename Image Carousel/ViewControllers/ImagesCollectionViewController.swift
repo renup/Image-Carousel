@@ -49,8 +49,8 @@ final class ImagesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AlbumCell", for: indexPath) as! AlbumCell
         let itemArray = manifests[indexPath.row]
-        cell.configure(viewModel: viewModel, identifier: itemArray[indexPath.row])
-        print("identifier = \(itemArray[indexPath.row])")
+        cell.configure(viewModel: viewModel, identifier: itemArray[0])
+        print("identifier = \(itemArray[0])")
         cell.backgroundColor = .white
         return cell
     }
