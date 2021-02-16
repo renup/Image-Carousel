@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F12BD2D0-91AE-4283-A0A5-29B6781D7935"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Image Carousel/ViewControllers/ImagesCollectionViewController.swift"
@@ -24,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1EF29E6F-6C70-4A70-91FD-3F08896FCAAB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Image Carousel/ViewControllers/ImagesCollectionViewController.swift"
@@ -72,7 +72,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "21E21C80-88AC-43D8-93CD-D4D2F48F3E7D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Image Carousel/API/Routers/NetworkService.swift"
@@ -120,7 +120,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D8C3D5D7-93E4-4607-9D4A-7C483FCD21D6"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Image Carousel/API/Routers/NetworkService.swift"
@@ -168,7 +168,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1C6AC6BE-AFDF-413B-B98D-26FC50F6D36D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Image Carousel/API/Routers/NetworkService.swift"
@@ -298,8 +298,8 @@
             filePath = "Image Carousel/Coordinators/AppCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "start()"
             landmarkType = "7">
          </BreakpointContent>
@@ -308,7 +308,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "898D26F3-9032-4F7B-AA9B-35A58182DC58"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Image Carousel/ViewControllers/ImagesCollectionViewController.swift"
@@ -317,6 +317,86 @@
             startingLineNumber = "37"
             endingLineNumber = "37"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "898D26F3-9032-4F7B-AA9B-35A58182DC58 - 7663421171ed226f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Image_Carousel.ManifestResponse, Image_Carousel.APIServiceError&gt;) -&gt; () in Image_Carousel.ImagesCollectionViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Image Carousel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apunjabi/Documents/iOS%20Projects/Image%20Carousel/Image%20Carousel/ViewControllers/ImagesCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "236">
+               </Location>
+               <Location
+                  uuid = "898D26F3-9032-4F7B-AA9B-35A58182DC58 - 7663421171ed226f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Image_Carousel.ManifestResponse, Image_Carousel.APIServiceError&gt;) -&gt; () in Image_Carousel.ImagesCollectionViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "Image Carousel"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/apunjabi/Documents/iOS%20Projects/Image%20Carousel/Image%20Carousel/ViewControllers/ImagesCollectionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "260">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C0720A3F-F431-4234-ABFE-D193FB0F2811"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Image Carousel/ViewControllers/ImagesCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5C59FD32-351D-4127-8BEF-5BC6982582C0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Image Carousel/Coordinators/ImagesCollectionCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "start()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "53F9763B-7D69-4527-B82B-B5BF4EED786F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Image Carousel/ViewControllers/ImagesCollectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

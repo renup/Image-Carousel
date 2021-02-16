@@ -18,6 +18,7 @@ protocol Coordinator {
 final class AppCoordinator: Coordinator {
         
     let window: UIWindow
+    var imagesCollectionCoordinator: ImagesCollectionCoordinator?
     
     init(_ window: UIWindow) {
         self.window = window
@@ -26,6 +27,8 @@ final class AppCoordinator: Coordinator {
     func start() {
         let imagesViewController = ImagesCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
        let navigationViewController = UINavigationController(rootViewController: imagesViewController)
+        imagesCollectionCoordinator = ImagesCollectionCoordinator(navigationViewController)
+        imagesCollectionCoordinator?.start()
         window.rootViewController = navigationViewController
         window.makeKeyAndVisible()
     }
