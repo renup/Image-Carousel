@@ -10,34 +10,16 @@ import UIKit
 
 final class PhotoView: UIView {
     
-    struct Constants {
-        static let margin = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    }
-    
     private lazy var photoImageView: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.contentMode = .scaleAspectFill
-//        view.autoresizingMask = UIViewAutoresizing.FlexibleBottomMargin | UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleWidth
         return view
     }()
-    
-    private lazy var photoLabel: UILabel = {
-        let label = UILabel(frame: .zero)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    private lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [photoImageView, photoLabel])
-        stack.axis = .vertical
-        stack.spacing = 5.0
-        return stack
-    }()
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
+        setUp()
     }
     
     required init?(coder: NSCoder) {
@@ -45,8 +27,15 @@ final class PhotoView: UIView {
     }
     
     func setUp() {
-        self.wrap(view: stack, insets: Constants.margin)
-        stack.heightAnchor.constraint(equalTo: stack.widthAnchor, multiplier: 9.0/16.0).isActive = true
+        self.wrap(view: photoImageView)
+    }
+    
+    func fetchImage(viewModel: ImagesCollectionViewModel, identifier: String) {
+        photoImageView.image = UIImage(named: "placeholder_album")
+        viewModel.getImageDetailsAndImage(identifier, { (image) in
+            print("inside viewmodel")
+            self.photoImageView.image = image
+        })
     }
     
 }

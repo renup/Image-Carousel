@@ -24,6 +24,7 @@ final class ImagesCollectionCoordinator: Coordinator {
             guard let self = self else { return }
             self.albumCarouselViewController = AlbumCarouselViewController()
             self.albumCarouselViewController?.photosList = albums
+            self.albumCarouselViewController?.viewModel = self.imagesCollectionViewController?.viewModel
             self.navigationViewController.pushViewController(self.albumCarouselViewController!, animated: true)
         }
         navigationViewController.pushViewController(imagesCollectionViewController!, animated: true)

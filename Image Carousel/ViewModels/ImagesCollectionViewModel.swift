@@ -13,14 +13,11 @@ final class ImagesCollectionViewModel {
     let imageCache = NSCache<NSString, UIImage>()
     let networkService = NetworkService()
     
-//    private lazy var group: DispatchGroup = {
-//        return DispatchGroup()
-//    }()
-    
     func getManifests(_ completion: @escaping (Result<ManifestResponse, APIServiceError>) -> Void) {
         networkService.performRequest(route: ManifestEndpoint.manifest, completion: completion)
     }
     
+    @discardableResult
     func getImageDetailsAndImage(_ identifier: String, _ completion: @escaping (UIImage?) -> Void) -> URLSessionDataTask? {
         let group = DispatchGroup()
         var resultImage: UIImage?

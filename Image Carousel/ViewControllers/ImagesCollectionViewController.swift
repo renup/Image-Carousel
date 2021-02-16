@@ -14,7 +14,7 @@ final class ImagesCollectionViewController: UICollectionViewController {
     
     private let itemsPerRow: CGFloat = 2
     
-    private let viewModel = ImagesCollectionViewModel()
+    let viewModel = ImagesCollectionViewModel()
         
     private var manifests: [[String]] = [] {
         didSet {
