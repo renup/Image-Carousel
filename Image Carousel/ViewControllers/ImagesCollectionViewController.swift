@@ -21,6 +21,9 @@ final class ImagesCollectionViewController: UICollectionViewController {
             collectionView.reloadData()
         }
     }
+    
+    var didSelectAlbum: ([String]) -> Void = { _ in }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -54,6 +57,12 @@ final class ImagesCollectionViewController: UICollectionViewController {
         cell.backgroundColor = .white
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+           let selectedAlbum = manifests[indexPath.row]
+           print("selectedAlbum = \(selectedAlbum)")
+           didSelectAlbum(selectedAlbum)
+       }
 }
 
 

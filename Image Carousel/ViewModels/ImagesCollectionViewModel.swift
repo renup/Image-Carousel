@@ -74,4 +74,9 @@ final class ImagesCollectionViewModel {
         } //end of else
         return nil
     }
+    
+    func shouldShowError(error: APIServiceError) -> Bool {
+        guard error == .apiError else {  print(error.description); return false }
+        return true
+    }
 }
