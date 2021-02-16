@@ -25,8 +25,7 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let imagesViewController = ImagesCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-       let navigationViewController = UINavigationController(rootViewController: imagesViewController)
+       let navigationViewController = UINavigationController()
         imagesCollectionCoordinator = ImagesCollectionCoordinator(navigationViewController)
         imagesCollectionCoordinator?.start()
         window.rootViewController = navigationViewController

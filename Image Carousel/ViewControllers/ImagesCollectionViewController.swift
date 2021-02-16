@@ -15,7 +15,7 @@ final class ImagesCollectionViewController: UICollectionViewController {
     private let itemsPerRow: CGFloat = 2
     
     private let viewModel = ImagesCollectionViewModel()
-    
+        
     private var manifests: [[String]] = [] {
         didSet {
             collectionView.reloadData()
@@ -26,7 +26,7 @@ final class ImagesCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        collectionView.backgroundColor = .white
         collectionView.dataSource = self
         collectionView.delegate = self
                 
@@ -61,7 +61,7 @@ final class ImagesCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
            let selectedAlbum = manifests[indexPath.row]
            print("selectedAlbum = \(selectedAlbum)")
-           didSelectAlbum(selectedAlbum)
+        didSelectAlbum(selectedAlbum)
        }
 }
 
