@@ -1,32 +1,22 @@
 //
-//  AlbumCollectionViewController.swift
+//  ImagesCollectionViewController.swift
 //  Image Carousel
 //
-//  Created by Renu Punjabi on 2/7/21.
+//  Created by Renu Punjabi on 2/22/21.
 //
 
 import Foundation
 import UIKit
 
-final class AlbumCollectionViewController: UICollectionViewController {
+final class ImagesCollectionViewController: UICollectionViewController {
+    var photosList = [String]()
+    var viewModel: ImagesCollectionViewModel?
     
     struct Constants {
-        static let cellIdentifier = "AlbumCell"
+        static let cellIdentifier = "PhotoCell"
         static let sectionInsets = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         static let itemsPerRow: CGFloat = 2
     }
-      
-    weak var coordinator: ImagesCollectionCoordinator?
-    
-    let viewModel = ImagesCollectionViewModel()
-        
-    private var manifests: [[String]] = [] {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
-    
-    var didSelectAlbum: ([String]) -> Void = { _ in }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,43 +24,26 @@ final class AlbumCollectionViewController: UICollectionViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
                 
-        collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
-        
-        viewModel.getManifests { (result) in
-            switch result {
-            case .success(let response):
-                print(response.manifest)
-                DispatchQueue.main.async {
-                    self.manifests = response.manifest
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        collectionView.register(PhotoCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
     }
     
+}
+
+extension ImagesCollectionViewController {
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return manifests.count
+        return photosList.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! AlbumCell
-        let itemArray = manifests[indexPath.row]
-        cell.configure(viewModel: viewModel, identifier: itemArray[0])
-        print("identifier = \(itemArray[0])")
-        cell.backgroundColor = .white
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! PhotoCell
+        guard let viewModel = viewModel else { return UICollectionViewCell() }
+        cell.configure(viewModel: viewModel, identifier: photosList[indexPath.row])
         return cell
     }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-           let selectedAlbum = manifests[indexPath.row]
-           print("selectedAlbum = \(selectedAlbum)")
-        didSelectAlbum(selectedAlbum)
-       }
 }
 
-
-extension AlbumCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension ImagesCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(
         _ collectionView: UICollectionView,

@@ -29,6 +29,8 @@
 		A7B6C9D425DB00A3003C1C4F /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C9D325DB00A3003C1C4F /* PhotoView.swift */; };
 		A7B6C9DC25DB0BC0003C1C4F /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C9DB25DB0BC0003C1C4F /* UIScrollView+.swift */; };
 		A7B6C9EF25DB3FDB003C1C4F /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6C9EE25DB3FDB003C1C4F /* UIViewController+.swift */; };
+		A7B6CA0425E3F54F003C1C4F /* ImagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6CA0325E3F54F003C1C4F /* ImagesCollectionViewController.swift */; };
+		A7B6CA0925E3FDC7003C1C4F /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7B6CA0825E3FDC7003C1C4F /* PhotoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		A7B6C9D325DB00A3003C1C4F /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		A7B6C9DB25DB0BC0003C1C4F /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		A7B6C9EE25DB3FDB003C1C4F /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		A7B6CA0325E3F54F003C1C4F /* ImagesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewController.swift; sourceTree = "<group>"; };
+		A7B6CA0825E3FDC7003C1C4F /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				A7B6C96725D09810003C1C4F /* AlbumCollectionViewController.swift */,
+				A7B6CA0325E3F54F003C1C4F /* ImagesCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 			children = (
 				A7B6C9C025D91F0B003C1C4F /* AlbumCell.swift */,
 				A7B6C9D325DB00A3003C1C4F /* PhotoView.swift */,
+				A7B6CA0825E3FDC7003C1C4F /* PhotoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -382,10 +388,12 @@
 				A7B6C9DC25DB0BC0003C1C4F /* UIScrollView+.swift in Sources */,
 				A7B6C9AB25D0D3B0003C1C4F /* ImagesCollectionViewModel.swift in Sources */,
 				A7B6C98A25D0B754003C1C4F /* URLSession+.swift in Sources */,
+				A7B6CA0425E3F54F003C1C4F /* ImagesCollectionViewController.swift in Sources */,
 				A7B6C99425D0C268003C1C4F /* ManifestEndpoint.swift in Sources */,
 				A7B6C97B25D0B039003C1C4F /* APIConfiguration.swift in Sources */,
 				A7B6C99F25D0C750003C1C4F /* ManifestResponse.swift in Sources */,
 				A7B6C97325D0AA23003C1C4F /* UIView+.swift in Sources */,
+				A7B6CA0925E3FDC7003C1C4F /* PhotoCell.swift in Sources */,
 				A7B6C99925D0C2AF003C1C4F /* Constants.swift in Sources */,
 				A7B6C9EF25DB3FDB003C1C4F /* UIViewController+.swift in Sources */,
 				A7B6C9C625DA7858003C1C4F /* ImagesCollectionCoordinator.swift in Sources */,
