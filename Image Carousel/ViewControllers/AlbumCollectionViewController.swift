@@ -1,5 +1,5 @@
 //
-//  ImagesCollectionViewController.swift
+//  AlbumCollectionViewController.swift
 //  Image Carousel
 //
 //  Created by Renu Punjabi on 2/7/21.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-final class ImagesCollectionViewController: UICollectionViewController {
+final class AlbumCollectionViewController: UICollectionViewController {
     
     private let sectionInsets = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
     
@@ -66,7 +66,7 @@ final class ImagesCollectionViewController: UICollectionViewController {
 }
 
 
-extension ImagesCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension AlbumCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(
         _ collectionView: UICollectionView,
