@@ -35,7 +35,6 @@ final class PhotoCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        stackView.wrap(view: imageView, exceptBottom: true, insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10))
         wrap(view: stackView)
         backgroundColor = .white
         contentView.autoresizingMask = [.flexibleHeight]
@@ -52,7 +51,6 @@ final class PhotoCell: UICollectionViewCell {
     func configure(viewModel: ImagesCollectionViewModel, identifier: String) {
         imageView.image = UIImage(named: "placeholder_album")
         task = viewModel.getImageDetailsAndImage(identifier, { (image) in
-            print("inside viewmodel")
             self.imageName.text = viewModel.imageNameDictionary[identifier]
             self.imageView.image = image
         })

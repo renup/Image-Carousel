@@ -64,8 +64,10 @@ final class ImagesCollectionViewModel {
            return networkService.performRequestForImage(route: ManifestEndpoint.image(imageURL: imageURL)) { (result) in
                 switch result {
                 case .success(let data):
-                    let image = UIImage(data: data)
+                    guard let image = UIImage(data: data) else { return }
+                    let url = imageURL as NSString
                     DispatchQueue.main.async {
+                        self.imageCache.setObject(image, forKey: url)
                         print("received image")
                         completion(image)
                     }

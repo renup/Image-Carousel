@@ -31,7 +31,6 @@ final class AlbumCell: UICollectionViewCell {
     func configure(viewModel: ImagesCollectionViewModel, identifier: String) {
         imageView.image = UIImage(named: "placeholder_album")
         task = viewModel.getImageDetailsAndImage(identifier, { (image) in
-            print("inside viewmodel")
             self.imageView.image = image
         })
     }
