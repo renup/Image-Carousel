@@ -12,7 +12,9 @@ final class ImagesCollectionViewModel {
     
     let imageCache = NSCache<NSString, UIImage>()
     let networkService = NetworkService()
-    
+    let serialQueue = DispatchQueue(label: "com.cocoa.imageNameDictionaryQueue")
+    var imageNameDictionary = [String : String]()
+
     func getManifests(_ completion: @escaping (Result<ManifestResponse, APIServiceError>) -> Void) {
         networkService.performRequest(route: ManifestEndpoint.manifest, completion: completion)
     }
@@ -27,6 +29,9 @@ final class ImagesCollectionViewModel {
         fetchImageDetails(identifier: identifier) {[weak self] (result) in
             switch result {
             case .success(let imageResponse):
+                self?.serialQueue.sync {
+                    self?.imageNameDictionary[identifier] = imageResponse.name
+                }
                 group.enter()
                task = self?.fetchImage(imageURL: imageResponse.url) { (result) in
                     resultImage = result

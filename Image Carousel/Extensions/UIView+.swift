@@ -23,25 +23,23 @@ extension UIView {
     }
     
     func wrap(view: UIView, exceptTop: Bool = false, exceptLeft: Bool = false, exceptBottom: Bool = false, exceptRight: Bool = false, insets: UIEdgeInsets = .zero) {
+           
+        view.translatesAutoresizingMaskIntoConstraints = false
             
-            view.translatesAutoresizingMaskIntoConstraints = false
-            addSubview(view)
-            
-            if !exceptTop {
-                view.topAnchor.constraint(equalTo: topAnchor, constant: insets.top).isActive = true
-            }
-            
-            if !exceptLeft {
-                view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets.left).isActive = true
-            }
-            
-            if !exceptBottom {
-                view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -insets.bottom).isActive = true
-            }
-            
-            if !exceptRight {
-                view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets.right).isActive = true
-            }
+        if !exceptTop {
+            view.topAnchor.constraint(equalTo: topAnchor, constant: insets.top).isActive = true
         }
-    
+            
+        if !exceptLeft {
+            view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: insets.left).isActive = true
+        }
+            
+        if !exceptBottom {
+            view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -insets.bottom).isActive = true
+        }
+            
+        if !exceptRight {
+            view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -insets.right).isActive = true
+        }
+    }
 }

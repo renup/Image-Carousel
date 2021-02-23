@@ -23,6 +23,8 @@ final class ImagesCollectionCoordinator: Coordinator {
         albumCollectionViewController?.coordinator = self
         albumCollectionViewController?.didSelectAlbum = {[weak self] album in
             guard let self = self else { return }
+//            let layout = UICollectionViewFlowLayout()
+//            layout.estimatedItemSize = CGSize(width: 1.0, height: 1.0)
             self.imagesCollectionViewController = ImagesCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
             self.imagesCollectionViewController?.viewModel = self.albumCollectionViewController?.viewModel
             self.imagesCollectionViewController?.photosList = album

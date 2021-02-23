@@ -11,8 +11,6 @@ import UIKit
 protocol Coordinator {
     func start()
     func stop()
-//    var presenterViewController: UIViewController { get }
-//    var navigationViewController: UINavigationController { get }
 }
 
 final class AppCoordinator: Coordinator {

@@ -16,6 +16,7 @@ final class ImagesCollectionViewController: UICollectionViewController {
         static let cellIdentifier = "PhotoCell"
         static let sectionInsets = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         static let itemsPerRow: CGFloat = 2
+        static let spacing: CGFloat = 8.0
     }
     
     override func viewDidLoad() {
@@ -55,7 +56,7 @@ extension ImagesCollectionViewController: UICollectionViewDelegateFlowLayout {
         let widthPerItem = availableWidth / Constants.itemsPerRow
         return CGSize(width: widthPerItem, height: widthPerItem)
       }
-      
+    
       func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
