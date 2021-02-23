@@ -12,7 +12,7 @@ final class ImagesCollectionViewModel {
     
     let imageCache = NSCache<NSString, UIImage>()
     let networkService = NetworkService()
-    let serialQueue = DispatchQueue(label: "com.cocoa.imageNameDictionaryQueue")
+    let serialQueue = DispatchQueue(label: "com.cocoa.imageDictionaryQueue")
     var imageNameDictionary = [String : String]()
 
     func getManifests(_ completion: @escaping (Result<ManifestResponse, APIServiceError>) -> Void) {
@@ -67,7 +67,9 @@ final class ImagesCollectionViewModel {
                     guard let image = UIImage(data: data) else { return }
                     let url = imageURL as NSString
                     DispatchQueue.main.async {
-                        self.imageCache.setObject(image, forKey: url)
+                        self.serialQueue.sync {
+                            self.imageCache.setObject(image, forKey: url)
+                        }
                         print("received image")
                         completion(image)
                     }
