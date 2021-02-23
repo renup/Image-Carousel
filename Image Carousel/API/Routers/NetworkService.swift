@@ -85,27 +85,19 @@ final class NetworkService {
             switch result {
             case .success(let (response, data)):
                 guard let statusCode = (response as? HTTPURLResponse)? .statusCode, 200..<299 ~= statusCode else {
-                   // DispatchQueue.main.async {
-                        completion(.failure(.invalidResponse))
-                   // }
+                    completion(.failure(.invalidResponse))
                     return
                 }
                 
                 do{
                     let values = try JSONDecoder().decode(T.self, from: data)
-                  //  DispatchQueue.main.async {
-                        completion(.success(values))
-                  //  }
+                    completion(.success(values))
                 } catch {
-                    //DispatchQueue.main.async {
-                        completion(.failure(.decodeError))
-                   // }
+                    completion(.failure(.decodeError))
                 }
                 
             case .failure(_):
-               // DispatchQueue.main.async {
-                    completion(.failure(.apiError))
-               // }
+                completion(.failure(.apiError))
             }
         }
         task.resume()

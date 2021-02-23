@@ -70,7 +70,6 @@ final class ImagesCollectionViewModel {
                         self.serialQueue.sync {
                             self.imageCache.setObject(image, forKey: url)
                         }
-                        print("received image")
                         completion(image)
                     }
                 case .failure(let error):

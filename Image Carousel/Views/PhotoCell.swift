@@ -44,10 +44,6 @@ final class PhotoCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-       self.layoutIfNeeded()
-      }
-    
     func configure(viewModel: ImagesCollectionViewModel, identifier: String) {
         imageView.image = UIImage(named: "placeholder_album")
         task = viewModel.getImageDetailsAndImage(identifier, { (image) in

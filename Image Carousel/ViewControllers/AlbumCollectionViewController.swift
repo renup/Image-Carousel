@@ -36,15 +36,16 @@ final class AlbumCollectionViewController: UICollectionViewController {
                 
         collectionView.register(AlbumCell.self, forCellWithReuseIdentifier: Constants.cellIdentifier)
         
-        viewModel.getManifests { (result) in
+        viewModel.getManifests {[weak self] (result) in
             switch result {
             case .success(let response):
-                print(response.manifest)
                 DispatchQueue.main.async {
-                    self.manifests = response.manifest
+                    self?.manifests = response.manifest
                 }
             case .failure(let error):
-                print(error)
+                if ((self?.viewModel.shouldShowError(error: error)) != nil) {
+                    self?.showAPIError(error)
+                }
             }
         }
     }
@@ -57,14 +58,12 @@ final class AlbumCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as! AlbumCell
         let itemArray = manifests[indexPath.row]
         cell.configure(viewModel: viewModel, identifier: itemArray[0])
-        print("identifier = \(itemArray[0])")
         cell.backgroundColor = .white
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
            let selectedAlbum = manifests[indexPath.row]
-           print("selectedAlbum = \(selectedAlbum)")
         didSelectAlbum(selectedAlbum)
        }
 }
